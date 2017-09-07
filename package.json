@@ -1,0 +1,22 @@
+{
+  "name": "event-driven-node",
+  "version": "1.0.0",
+  "description": "Using event driven programming for work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivjisakina/Event-Driven-Node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivjisakina/Event-Driven-Node/issues"
+  },
+  "homepage": "https://github.com/shivjisakina/Event-Driven-Node#readme",
+  "dependencies": {
+    "events": "^1.1.1"
+  }
+}
