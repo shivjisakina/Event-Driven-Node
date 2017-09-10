@@ -52,8 +52,9 @@ myEmitter.emit('trying');
 const anotherEmitter = new EventEmitter();
 anotherEmitter.on('event', () => {});
 anotherEmitter.on('event', () => {});
+anotherEmitter.on('event', () => {});
 console.log(EventEmitter.listenerCount(anotherEmitter, 'event'));
-// Prints: 2
+// Prints: 3
 
 // =======================================================
 
@@ -71,10 +72,10 @@ var listner2 = function listner2() {
     console.log('listner2 executed.');
 }
 
-// Bind the connection event with the listner1 function
+// Bind the connection event with the listener1 function
 eventEmitter.addListener('connection', listner1);
 
-// Bind the connection event with the listner2 function
+// Bind the connection event with the listener2 function
 eventEmitter.on('connection', listner2);
 
 var eventListeners = require('events').EventEmitter.listenerCount
@@ -84,7 +85,7 @@ console.log(eventListeners + " Listner(s) listening to connection event");
 // Fire the connection event
 eventEmitter.emit('connection');
 
-// Remove the binding of listner1 function
+// Remove the binding of listener1 function
 eventEmitter.removeListener('connection', listner1);
 console.log("Listner1 will not listen now.");
 
