@@ -7,11 +7,11 @@ const myEmitter = new EventEmitter();
 // Only do this once so we don't loop forever
 myEmitter.once('newListener', (event, listener) => {
     if (event === 'event') {
-    // Insert a new listener in front
-    myEmitter.on('event', () => {
-        console.log('B');
-});
-}
+        // Insert a new listener in front
+        myEmitter.on('event', () => {
+            console.log('B');
+        });
+    }
 });
 myEmitter.on('event', () => {
     console.log('A');
@@ -50,9 +50,12 @@ myEmitter.emit('trying');
 // =======================================================
 
 const anotherEmitter = new EventEmitter();
-anotherEmitter.on('event', () => {});
-anotherEmitter.on('event', () => {});
-anotherEmitter.on('event', () => {});
+anotherEmitter.on('event', () => {
+});
+anotherEmitter.on('event', () => {
+});
+anotherEmitter.on('event', () => {
+});
 console.log(EventEmitter.listenerCount(anotherEmitter, 'event'));
 // Prints: 3
 
@@ -63,36 +66,36 @@ const events = require('events');
 var eventEmitter = new events.EventEmitter();
 
 // listener #1
-var listner1 = function listner1() {
-    console.log('listner1 executed.');
+var listener1 = function listener1() {
+    console.log('listener1 executed.');
 }
 
 // listener #2
-var listner2 = function listner2() {
-    console.log('listner2 executed.');
+var listener2 = function listener2() {
+    console.log('listener2 executed.');
 }
 
 // Bind the connection event with the listener1 function
-eventEmitter.addListener('connection', listner1);
+eventEmitter.addListener('connection', listener1);
 
 // Bind the connection event with the listener2 function
-eventEmitter.on('connection', listner2);
+eventEmitter.on('connection', listener2);
 
 var eventListeners = require('events').EventEmitter.listenerCount
-(eventEmitter,'connection');
-console.log(eventListeners + " Listner(s) listening to connection event");
+(eventEmitter, 'connection');
+console.log(eventListeners + " Listener(s) listening to connection event");
 
 // Fire the connection event
 eventEmitter.emit('connection');
 
 // Remove the binding of listener1 function
-eventEmitter.removeListener('connection', listner1);
-console.log("Listner1 will not listen now.");
+eventEmitter.removeListener('connection', listener1);
+console.log("Listener1 will not listen now.");
 
 // Fire the connection event
 eventEmitter.emit('connection');
 
-eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
-console.log(eventListeners + " Listner(s) listening to connection event");
+eventListeners = require('events').EventEmitter.listenerCount(eventEmitter, 'connection');
+console.log(eventListeners + " Listener(s) listening to connection event");
 
 console.log("Program Ended.");
